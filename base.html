@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="{{ .Lang }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      :root { --nav-width: 24rem; --nav-margin-l: 1rem; }
+
+      /* normalize.css + sakura.css */
+      html { -webkit-text-size-adjust: 100%; }
+      body {
+          margin: 0; color: #4a4a4a; background-color: #f9f9f9; line-height: 1.618;
+          font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+      }
+      h1 { font-size: 2em; margin: 0.67rem 0; }
+      b, strong { font-weight: bolder; }
+      a { text-decoration: none; color: #2c6d98; }
+      a:hover { color: #982c61; border-bottom: 2px solid #4a4a4a; }
+      ul { padding: 0 1.2em 0 1.2em; }
+      pre { padding: 0.5rem; overflow-x: auto; font-size: 1em; }
+      code { font-size: 1em; }
+      table { text-align: justify; width: 100%; border-collapse: collapse; }
+      td, th { padding: 0.5em; border-bottom: 1px solid #f1f1f1; }
+
+      /* styles.css */
+      body { word-wrap: break-word; }
+      .navigation { margin-left: var(--nav-margin-l); }
+      .contents-wrapper { padding: 0 0.5rem 0 0.5rem; }
+      .table-wrapper { overflow-x: auto; }
+      @media screen and (min-width: 801px) {
+        body { font-size: 1.15em; }
+        pre { padding: 1rem }
+        .navigation {
+          overflow: auto;
+          width: var(--nav-width);
+          height: 100vh;
+          position: fixed;
+          top: 0;
+          left: 0;
+        }
+        .contents-wrapper {
+          margin-left: calc(var(--nav-width) + var(--nav-margin-l));
+          padding: 0 1.5rem 0 1.5rem;
+        }
+      }
+    </style>
+    <title>{{ .Title }}</title>
+  </head>
+  <body>
+    <div class="navigation">
+      <h2 id="toc"><a href="#toc">Table Of Contents ({{ .Title }})</a></h2>
+      {{ .TableOfContents }}
+    </div>
+    <div class="contents-wrapper">
+      {{ .Contents }}
+    </div>
+  </body>
+</html>
